@@ -54,3 +54,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/post', [PostController::class, 'index']);
     Route::get('/event', [EventController::class, 'index']);
 });
+
+Route::redirect('/beranda', 'about');
