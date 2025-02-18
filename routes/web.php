@@ -81,6 +81,4 @@ Route::get('/articles/{id}', [ArticleController::class, 'articles']);
 
 Route::resource('photos', PhotoController::class)->except('store');
 
-Route::get('/greeting', function () {
-    return view('blog.hello', ['name' => 'Aakhif']);
-});
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
