@@ -29,7 +29,7 @@ Route::get('/about', function () {
     return "NIM: 2341720071<br>Nama: Akhmad Aakhif Athallah";
 });
 
-Route::get('user/{name}', function ($name) {
+Route::get('/user/{name?}', function ($name=null) {
     return 'Nama saya '.$name;
 });
 
