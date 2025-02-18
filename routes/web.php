@@ -56,3 +56,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::redirect('/beranda', 'about');
+
+Route::view('/welcome', 'welcome');
+Route::view('/welcome', 'welcome', ['name' => 'Aakhif']);
