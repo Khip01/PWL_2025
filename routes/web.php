@@ -41,3 +41,7 @@ Route::get('/posts/{post}/comments/{comment}', function
 Route::get('articles/{id}', function ($id) {
     return "Halaman Artikel dengan ID $id";
 });
+
+Route::get('/user/profile', function ($id) {
+    return "Route Naming";
+})->name('profile');
