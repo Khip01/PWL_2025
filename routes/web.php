@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +32,9 @@ Route::get('/about', function () {
     return "NIM: 2341720071<br>Nama: Akhmad Aakhif Athallah";
 });
 
-Route::get('/user/{name?}', function ($name=null) {
-    return 'Nama saya '.$name;
-});
+// Route::get('/user/{name?}', function ($name=null) {
+//     return 'Nama saya '.$name;
+// });
 
 Route::get('/posts/{post}/comments/{comment}', function 
 ($postId, $commentId) {
@@ -42,6 +45,12 @@ Route::get('articles/{id}', function ($id) {
     return "Halaman Artikel dengan ID $id";
 });
 
-Route::get('/user/profile', function ($id) {
+Route::get('/user/profile', function () {
     return "Route Naming";
 })->name('profile');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/user', [UserController::class, 'index']);
+    Route::get('/post', [PostController::class, 'index']);
+    Route::get('/event', [EventController::class, 'index']);
+});
